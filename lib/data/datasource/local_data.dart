@@ -84,9 +84,11 @@ class LocalData implements LocalDataSource {
   }
 
   @override
-  Future<void> addComments(List<Comments> comments, int id) async {
+  Future<void> addComments(List<Comments> comments, int id,
+      {bool clear = true}) async {
     final box = await Hive.openBox<Comments>('$_comments-$id');
-    await box.clear();
+
+    if (clear) await box.clear();
     await box.addAll(comments);
   }
 }

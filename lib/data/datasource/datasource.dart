@@ -15,7 +15,7 @@ abstract class LocalDataSource {
   Future<void> addPosts(List<Post> posts, int id);
   Future<void> addAlbums(List<Album> albums, int id);
   Future<void> addPhotos(List<Photos> photos, int id);
-  Future<void> addComments(List<Comments> comments, int id);
+  Future<void> addComments(List<Comments> comments, int id, {bool clear});
 }
 
 abstract class RemoteDataSource {

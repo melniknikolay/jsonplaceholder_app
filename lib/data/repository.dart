@@ -72,8 +72,7 @@ class Repository {
 
   Future<List<Comments>> sendComments(Comments comments) async {
     final remoteComment = await _source.postComments(comments);
-    await _cache.addComments([remoteComment], comments.postId);
-
+    await _cache.addComments([remoteComment], comments.postId, clear: false);
     return _cache.getComments(comments.postId);
   }
 }
